@@ -13,7 +13,7 @@ class Frame
   end
 
   def roll(pins: 10)
-    (1..pins).to_a.sample
+    rand(1..pins)
   end
 end
 
