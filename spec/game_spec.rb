@@ -4,7 +4,7 @@ require 'rspec'
 require_relative '../lib/game'
 
 RSpec.describe Game do
-  let(:game) {Game.new}
+  let(:game) { Game.new }
   describe('#setup') do
     it 'should create 10 frames' do
       game.setup
@@ -17,12 +17,12 @@ RSpec.describe Game do
     it 'should fill each frame' do
       game.setup
       game.play
-      expect(game.frames.find { |frame| frame.ball_one == nil }).to be(nil)
+      expect(game.frames.find { |frame| frame.ball_one.nil? }).to be(nil)
     end
   end
 
   describe('#total_score') do
-    let (:game) { Game.new }
+    let(:game) { Game.new }
     it 'should return 300 for a perfect game score' do
       game.setup
       game.frames.map { |frame| frame.ball_one = 10 }

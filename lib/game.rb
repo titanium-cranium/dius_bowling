@@ -33,7 +33,7 @@ class Game
       rolls = if frame.ball_one == 10
                 (rolls << advance_frames.slice(0, 2)).flatten
               else
-                (rolls << advance_frames.slice(0,1)).flatten
+                (rolls << advance_frames.slice(0, 1)).flatten
               end
     end
     rolls.reduce(&:+)

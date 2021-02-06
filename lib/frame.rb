@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Frame
   attr_accessor :id, :ball_one, :ball_two
 
@@ -29,4 +31,3 @@ class Frame
     rand(0..pins)
   end
 end
-
