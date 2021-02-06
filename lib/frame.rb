@@ -12,6 +12,10 @@ class Frame
     roll_ball_two unless @ball_one == 10
   end
 
+  def results
+    [@ball_one, @ball_two].compact
+  end
+
   def roll_ball_one
     @ball_one = roll(pins: 10)
   end
