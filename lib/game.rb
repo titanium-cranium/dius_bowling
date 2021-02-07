@@ -7,13 +7,7 @@ class Game
 
   def initialize
     @frames = []
-  end
-
-  def setup
-    (1..10).to_a.each do |id|
-      frame = Frame.new(id: id)
-      frames << frame
-    end
+    setup
   end
 
   def play
@@ -25,6 +19,13 @@ class Game
   end
 
   private
+
+  def setup
+    (1..10).to_a.each do |id|
+      frame = Frame.new(id: id)
+      frames << frame
+    end
+  end
 
   def frame_score(frame)
     rolls = frame.results
