@@ -56,7 +56,7 @@ RSpec.describe Frame do
     end
 
     context 'sum of ball one and two are < 10 in frame 10' do
-      it 'sets the ball_three score' do
+      it 'marks the frame complete' do
         frame.id = 10
         2.times do
           frame.bowl(3)
