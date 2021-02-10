@@ -10,12 +10,15 @@ class Game
     setup
   end
 
-  def play
-    frames.each(&:bowl)
+  def roll(pins)
+    frame = active_frame
+    frame.bowl(pins)
   end
 
-  def total_score
-    frames.collect { |frame| frame_score(frame) }.reduce(&:+)
+  def score
+    completed_frames = frames.filter { |frame| frame.complete }
+    score = completed_frames.collect { |frame| frame_score(frame) }.reduce(&:+) unless completed_frames.empty?
+    score.nil? ? frames.first.ball_one : score
   end
 
   private
@@ -43,5 +46,9 @@ class Game
   def get_two_more_frames(frame_id)
     advance_frames = frames.select { |frame| frame.id == frame_id + 1 || frame.id == frame_id + 2 }
     advance_frames.collect(&:results)
+  end
+
+  def active_frame
+    frames.find { |frame| frame.complete == false }
   end
 end
