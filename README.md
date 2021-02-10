@@ -7,6 +7,12 @@ review the commits as some elements appear and disappear again during developmen
 framework, nor any gems aside from rspec. And, many thanks for finally forcing me to learn how the scoring works in
 bowling! I've played occasionally with the family for yonks but never bothered until now, and I had fun doing it. :-)
 
+## Refactor
+I initially misunderstood the instruction of 'do not create a cli' to mean the game needed to autoplay.  The app has now been 
+refactored so that the `Game` model now accepts a method call of `roll(pins)` which in turn updates the active frame.  The
+`Frame` model has mainly the same structure, but now includes a `complete` attribute which is used by the `Game` model
+to select appropriate frames to update and retrieve scores and by the `Frame` model to handle the unique frame 10 rules.
+This refactor was made easier due to the existing specs in place.
 
 ## Description
 This app uses ruby to create an Object Oriented design modeled on the bowling domain. I attempted to use plain language
